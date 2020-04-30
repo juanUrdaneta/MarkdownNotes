@@ -30,13 +30,6 @@ const AddNote = ({onAdd}) => {
           />
         </form>
       </div>
-      {/* <button
-        className="add-button button is-primary"
-        onClick={()=>{
-          onAdd(createNote(addInputValue));
-          setInputValue('');
-        }}
-      >Add</button> */}
     </div>
    );
 }
