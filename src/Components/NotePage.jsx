@@ -8,20 +8,22 @@ const NotePage = ({item,saveNote}) => {
     if(item.data === '') {setToogle(true)}
   }, [item])
   return (
-    <div className={`note-page ${item === '' ? "is-hidden" : ''}`}>
-        <button
-          className="button is-primary"
-          onClick={()=>setToogle(!toggle)}>
-        {toggle ? 'View' : 'Edit'}
-        </button>
-          {toggle 
-          ? (
-          <NoteEdit 
-            item={item}
-            saveNote={saveNote}/>)
-          : (
-          <NoteView item={item}/>)
-        }
+    <div className={`columns ${item === '' ? "is-hidden" : ''}`}>
+      <NoteEdit 
+        item={item}
+        saveNote={saveNote}/>
+      <NoteView item={item}/>
+      {/* <button
+        className="button is-primary"
+        onClick={()=>setToogle(!toggle)}>
+      {toggle ? 'View' : 'Edit'}
+      </button> */}
+      {/* {toggle 
+      ? (
+      )
+      : (
+      )
+      } */}
     </div>
   );
 }

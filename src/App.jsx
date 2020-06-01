@@ -53,21 +53,23 @@ const App = () => {
   }
 
   return ( 
-    <div className="app-container">
-      <div className="left-panel">
-      <AddNote onAdd = {addNote}/>
-      <NoteListSort sortItems={sortItems}/>
-      <NoteList 
-        items={items}
-        selected={selectedItem.dateCreated}
-        setSelected={setSelectedItem} 
-        deleteF={deleteNote}/>
-      </div>
-      <div className="right-panel">
-        <NotePage 
-          item={selectedItem}
-          saveNote={saveNote}
-        />
+    <div className="container margin-vertical-40px">
+      <div className="columns">
+        <div className="column is-one-quarter">
+          <AddNote onAdd = {addNote}/>
+          <NoteListSort sortItems={sortItems}/>
+          <NoteList 
+            items={items}
+            selected={selectedItem.dateCreated}
+            setSelected={setSelectedItem} 
+            deleteF={deleteNote}/>
+        </div>
+        <div className="column right-panel">
+          <NotePage 
+            item={selectedItem}
+            saveNote={saveNote}
+          />
+        </div>
       </div>
     </div>  
   );

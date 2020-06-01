@@ -1,4 +1,20 @@
-@import '../node_modules/bulma/sass/utilities/_all.sass';
-@import '../node_modules/bulma/sass/base/_all.sass';
-@import '../node_modules/bulma/sass/elements/_all.sass';
-@import '../node_modules/bulma/sass/form/_all.sass';
+$info: #499bb9 //override bulma "info" color
+@import '../node_modules/bulma/bulma.sass';
+
+$sizes: 20px, 40px, 80px
+
+body 
+    background-color: #FDFDFD
+    height: 100vh
+
+@each  $size in $sizes
+    .margin-vertical-#{$size}
+        margin-top: $size
+        margin-bottom: $size
+
+.flex-space-around
+    display: flex
+    justify-content: space-between
+
+.dont-select
+    user-select: none

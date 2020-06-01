@@ -5,17 +5,22 @@ const NoteListItem = ({item, deleteItem, setSelected, selected}) => {
   const name = useRef(null);
 
   return ( 
-    <div className="list-item">
+    <div className="level columns list-item">
       <p 
         onClick={()=>setSelected(item)} 
-        className={`${selected ? 'list-item--selected' : ''}`} 
+        className={``} 
         ref={name} >{item.name}</p>
-      <div 
+      {/* <div 
         className="button is-danger" 
         onClick={()=>{
           deleteItem(item);
         }}
-      >X</div>
+      >X</div> */}
+      <div className={"level"}>
+        <div href="" className="delete"
+          onClick={()=>deleteItem(item)}>
+        </div>
+      </div>
     </div>
   );
 }

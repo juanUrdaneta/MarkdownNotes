@@ -4,7 +4,7 @@ import NoteListItem from './NoteListItem';
 const NoteList = ({items, deleteF, setSelected, selected}) => {
 
   return ( 
-    <div className="note-list">
+    <div className="dont-select">
       {
         items.map(item=>(
           <NoteListItem 

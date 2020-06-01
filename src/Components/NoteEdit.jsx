@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NoteEdit = ({item, saveNote}) => {
-  const textarea = useRef(null)
 
   const [textAreaValue,setTextAreaValue] = useState(item.data);
 
@@ -10,13 +9,13 @@ const NoteEdit = ({item, saveNote}) => {
   },[item]);
 
   return ( 
-    <div className="note-edit">
+    <div className="column">
       <textarea 
-        ref={textarea} 
         value={textAreaValue} 
-        className="textarea has-fixed-size tarea"
+        className="textarea is-info"
+        rows={25}
         onChange={e=>setTextAreaValue(e.target.value)}
-        onKeyUp = {() => saveNote({...item,data: textarea.current.value})}
+        onKeyUp = {() => saveNote({...item,data: textAreaValue})}
         >
       </textarea>
     </div>

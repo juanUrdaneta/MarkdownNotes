@@ -9,7 +9,7 @@ const NoteView = ({item}) => {
     viewer.current.innerHTML = marked(item.data || '');
   },[item])
 
-  return ( <div className="note-view content" ref={viewer}></div> );
+  return ( <div className="column content" ref={viewer}></div> );
 }
  
 export default NoteView;

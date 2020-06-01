@@ -13,7 +13,7 @@ const AddNote = ({onAdd}) => {
   const [addInputValue, setInputValue] = useState('');
 
   return ( 
-    <div className="add-note-sec">
+    <div className="">
       <div className="field">
         <form 
           className="control"
@@ -22,7 +22,7 @@ const AddNote = ({onAdd}) => {
             setInputValue('');
           }}>
           <input
-            className="add-input input is-primary"
+            className="input is-info"
             type="text"
             placeholder="Name of your new note..."
             value={addInputValue}
