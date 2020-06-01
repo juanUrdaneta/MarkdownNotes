@@ -64,9 +64,9 @@ const App = () => {
         deleteF={deleteNote}/>
       </div>
       <div className="right-panel">
-      <NotePage 
-        item={selectedItem}
-        saveNote={saveNote}
+        <NotePage 
+          item={selectedItem}
+          saveNote={saveNote}
         />
       </div>
     </div>  
