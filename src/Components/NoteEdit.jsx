@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-const NoteEdit = ({item, saveNote}) => {
+const NoteEdit = ({item, saveNote, isEditing}) => {
 
   const [textAreaValue,setTextAreaValue] = useState(item.data);
 
@@ -8,16 +9,27 @@ const NoteEdit = ({item, saveNote}) => {
     setTextAreaValue(item.data);
   },[item]);
 
+  const anim = useSpring({
+    width: isEditing ? 500 : 0,
+    visibility: isEditing ? 'visible' : 'hidden'
+  });
+
+  const animB = useSpring({
+    from: {width: 500, visibility: 'visible'},
+    to  : {width: 0  , visibility: 'hidden'}
+  });
+
   return ( 
-    <div className="column">
-      <textarea 
+    <div>
+      <animated.textarea 
         value={textAreaValue} 
-        className="textarea is-info"
+        style={anim}
+        className="textarea has-fixed-size is-info"
         rows={25}
         onChange={e=>setTextAreaValue(e.target.value)}
         onKeyUp = {() => saveNote({...item,data: textAreaValue})}
         >
-      </textarea>
+      </animated.textarea>
     </div>
   );
 }

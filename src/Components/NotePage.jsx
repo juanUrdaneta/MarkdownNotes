@@ -3,27 +3,27 @@ import NoteEdit from './NoteEdit';
 import NoteView from './NoteView';
 
 const NotePage = ({item,saveNote}) => {
-  const [toggle, setToogle] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+
   useEffect(() => {
-    if(item.data === '') {setToogle(true)}
-  }, [item])
+    if(item.data === '') {setIsEditing(true)}
+    else {setIsEditing(false)}
+  }, [item.dateCreated]);
+
   return (
-    <div className={`columns ${item === '' ? "is-hidden" : ''}`}>
-      <NoteEdit 
-        item={item}
-        saveNote={saveNote}/>
-      <NoteView item={item}/>
-      {/* <button
-        className="button is-primary"
-        onClick={()=>setToogle(!toggle)}>
-      {toggle ? 'View' : 'Edit'}
-      </button> */}
-      {/* {toggle 
-      ? (
-      )
-      : (
-      )
-      } */}
+    <div>
+      <button 
+        className="button is-info margin-bottom-20px"
+        onClick={()=>setIsEditing(!isEditing)}>
+        Edit 
+      </button>
+      <div className={`flex`}>
+        <NoteEdit 
+          item={item}
+          isEditing={isEditing}
+          saveNote={saveNote}/>
+        <NoteView isEditing={isEditing} item={item}/>
+      </div>
     </div>
   );
 }
