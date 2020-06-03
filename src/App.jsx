@@ -27,13 +27,13 @@ const App = () => {
   const addNote = newNote => {
     setItems([newNote, ...items]);
     localStorage.setItem(newNote.dateCreated, JSON.stringify(newNote));
-    setSelectedItem(getItems()[getItems().length - 1 ]);
+    // setSelectedItem(getItems()[getItems().length - 1 ]);
+    setSelectedItem(newNote);
   }
   const deleteNote = note => {
-    setItems(items.filter(e=>e.dateCreated!==note.dateCreated))
     localStorage.removeItem(note.dateCreated);
-
-    setSelectedItem(items[0]||'');
+    setItems(items.filter(e=>e.dateCreated!==note.dateCreated));
+    setSelectedItem(getItems()[0]||'');
   }
   const saveNote = note => {//updateNote
     setItems(items.map(e=>{
@@ -60,7 +60,7 @@ const App = () => {
           <NoteListSort sortItems={sortItems}/>
           <NoteList 
             items={items}
-            selected={selectedItem.dateCreated}
+            selected={selectedItem}
             setSelected={setSelectedItem} 
             deleteF={deleteNote}/>
         </div>

@@ -6,8 +6,10 @@ const NotePage = ({item,saveNote}) => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    if(item.data === '') {setIsEditing(true)}
+    console.log(item)
+    if (item.data === "") {setIsEditing(true)}
     else {setIsEditing(false)}
+    console.log(isEditing)
   }, [item.dateCreated]);
 
   return (

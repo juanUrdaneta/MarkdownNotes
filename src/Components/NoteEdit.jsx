@@ -7,16 +7,13 @@ const NoteEdit = ({item, saveNote, isEditing}) => {
 
   useEffect(()=>{
     setTextAreaValue(item.data);
-  },[item]);
+  },[item.dateCreated]);
 
   const anim = useSpring({
-    width: isEditing ? 500 : 0,
-    visibility: isEditing ? 'visible' : 'hidden'
-  });
-
-  const animB = useSpring({
-    from: {width: 500, visibility: 'visible'},
-    to  : {width: 0  , visibility: 'hidden'}
+    from: {width: 0, visibility: 'hidde'},
+    to  : {
+      width: isEditing ? 500 : 0,
+      visibility: isEditing ? 'visible' : 'hidden'}
   });
 
   return ( 

@@ -11,7 +11,19 @@ const NoteView = ({item, isEditing}) => {
   })
 
   useEffect(()=>{
-    viewer.current.innerHTML = marked(item.data || '');
+    switch(item.data){
+      case undefined: 
+        viewer.current.innerHTML = marked('## Add a new note...');
+        break;
+      case '':
+        viewer.current.innerHTML = marked('');
+        break;
+      case item.data: 
+        viewer.current.innerHTML = marked(item.data);
+        break;
+      default: 
+        viewer.current.innerHTML = marked('# default');
+    }
   },[item])
 
   return ( 
