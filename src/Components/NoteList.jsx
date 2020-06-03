@@ -11,7 +11,7 @@ const NoteList = ({items, deleteF, setSelected, selected}) => {
             key={item.dateCreated} 
             item={item} 
             deleteItem={deleteF}
-            selected={selected === item.dateCreated ? true : false}
+            selected={selected.dateCreated === item.dateCreated ? true : false}
             setSelected={setSelected}/>
         ))
       }

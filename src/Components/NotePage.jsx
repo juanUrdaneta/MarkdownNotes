@@ -6,10 +6,8 @@ const NotePage = ({item,saveNote}) => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    console.log(item)
     if (item.data === "") {setIsEditing(true)}
     else {setIsEditing(false)}
-    console.log(isEditing)
   }, [item.dateCreated]);
 
   return (
@@ -17,7 +15,7 @@ const NotePage = ({item,saveNote}) => {
       <button 
         className="button is-info margin-bottom-20px"
         onClick={()=>setIsEditing(!isEditing)}>
-        Edit 
+        Edit  
       </button>
       <div className={`flex`}>
         <NoteEdit 
