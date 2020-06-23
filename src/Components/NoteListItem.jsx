@@ -18,12 +18,6 @@ const NoteListItem = ({item, deleteItem, setSelected, selected}) => {
         onClick={()=>setSelected(item)} 
         className={``} 
         ref={name} >{item.name}</animated.p>
-      {/* <div 
-        className="button is-danger" 
-        onClick={()=>{
-          deleteItem(item);
-        }}
-      >X</div> */}
       <div className={"level"}>
         <div href="" className="delete"
           onClick={()=>deleteItem(item)}>

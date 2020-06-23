@@ -36,11 +36,11 @@ const App = () => {
     setSelectedItem(getItems()[0]||'');
   }
   const saveNote = note => {//updateNote
-    setItems(items.map(e=>{
-      if(e.dateCreated === note.dateCreated){
+    setItems(items.map(item=>{
+      if(item.dateCreated === note.dateCreated){
         return note;
       }else{
-        return e;
+        return item;
       }
     }));
     localStorage.setItem(note.dateCreated, JSON.stringify(note));
